@@ -1,10 +1,12 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome home!</h1>
-      <p>Let's get started.</p>
+    <div
+      sx={{ width: "calc(100% - 240px)", marginLeft: "240px", height: "100vh" }}
+    >
+      Welcome home!
     </div>
   );
 };

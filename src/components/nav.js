@@ -1,37 +1,28 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Link from "next/link";
-
+import { Select } from "theme-ui";
 const Nav = () => (
-  <header
+  <div
     sx={{
-      height: "60px",
-      width: "100vw",
-      bg: "primary",
-      borderBottom: "1px solid",
-      borderColor: "primary"
+      height: "100vh",
+      width: "240px",
+      position: "fixed",
+      bg: "#202a35"
     }}
   >
-    <nav
+    <div
       sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        variant: "containers.page",
-        height: "100%"
+        paddingTop: "24px",
+        paddingRight: "24px",
+        paddingLeft: "24px",
+        paddingBottom: "20px",
+        color: "white"
       }}
     >
-      <Link href="/">
-        <a sx={{ fontWeight: "bold", fontSize: 4, cursor: "pointer" }}>
-          Note App
-        </a>
-      </Link>
-
-      <Link href="/notes">
-        <a sx={{ color: "text", fontSize: 3, cursor: "pointer" }}>notes</a>
-      </Link>
-    </nav>
-  </header>
+      Mirror Pools FC
+    </div>
+  </div>
 );
 
 export default Nav;
