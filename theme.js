@@ -11,10 +11,9 @@ const theme = {
       p: 2
     },
     page: {
-      width: "100%",
-      maxWidth: "960px",
-      m: 0,
-      mx: "auto"
+      width: "calc(100% - 240px)",
+      marginLeft: "240px",
+      height: "100vh"
     }
   },
   styles: {
