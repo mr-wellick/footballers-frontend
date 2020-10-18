@@ -10,7 +10,7 @@ import {
   Tooltip
 } from "recharts";
 import { useSelector } from "react-redux";
-import { Container } from 'theme-ui'
+import { Container } from "theme-ui";
 
 const Chart = () => {
   const [data, setData] = useState([]);
@@ -18,6 +18,7 @@ const Chart = () => {
     state => state.footballersReducer
   );
 
+  console.log(data);
   useEffect(() => {
     fetch("http://localhost:5000/api/v1/position", {
       method: "POST",
@@ -29,7 +30,7 @@ const Chart = () => {
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => console.log(err));
-  });
+  }, [activeSeason, activePosition]);
 
   return (
     <Container p={4}>
