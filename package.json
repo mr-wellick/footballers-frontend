@@ -10,9 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "@theme-ui/presets": "^0.3.0",
+    "lodash.filter": "^4.6.0",
+    "lodash.find": "^4.6.0",
     "next": "^9.5.5",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "recharts": "^1.8.5",
     "theme-ui": "^0.3.1"
   }
 }
