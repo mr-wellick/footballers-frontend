@@ -13,22 +13,24 @@ const SeasonSelector = () => {
     dispatch(fetchSeasons());
   }, []);
 
-  return (
-    <Container p={2}>
-      <Select onChange={e => console.log(e.target.value)}>
-        {seasons.map(season => (
-          <option key={season} value={season}>
-            {season.split("_").join(" ")}
-          </option>
-        ))}
-      </Select>
-      <Select defaultValue="F">
-        <option value="F">F</option>
-        <option value="M">M</option>
-        <option value="D">D</option>
-      </Select>
-    </Container>
-  );
+  return null;
+
+  //return (
+  //  <Container p={2}>
+  //    <Select onChange={e => console.log(e.target.value)}>
+  //      {seasons.map(season => (
+  //        <option key={season} value={season}>
+  //          {season.split("_").join(" ")}
+  //        </option>
+  //      ))}
+  //    </Select>
+  //    <Select defaultValue="F">
+  //      <option value="F">F</option>
+  //      <option value="M">M</option>
+  //      <option value="D">D</option>
+  //    </Select>
+  //  </Container>
+  //);
 };
 
 export default SeasonSelector;

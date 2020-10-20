@@ -1,5 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Container } from "theme-ui";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import {
   BarChart,
   CartesianGrid,
@@ -9,8 +13,6 @@ import {
   Legend,
   Tooltip
 } from "recharts";
-import { useSelector } from "react-redux";
-import { Container } from "theme-ui";
 
 const Chart = () => {
   const [data, setData] = useState([]);
@@ -33,16 +35,14 @@ const Chart = () => {
   }, [activeSeason, activePosition]);
 
   return (
-    <Container p={4}>
+    <div sx={{ margin: "40px 0" }}>
       <BarChart
-        width={1500}
+        width={1104}
         height={500}
         data={data}
         margin={{
-          top: 10,
-          right: 30,
-          left: 20,
-          bottom: 10
+          top: 5,
+          bottom: 5
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
@@ -54,7 +54,7 @@ const Chart = () => {
         <Tooltip />
         <Legend />
       </BarChart>
-    </Container>
+    </div>
   );
 };
 
