@@ -5,18 +5,20 @@ const footballersReducer = (
   state = {
     seasons: [],
     activeSeason: "",
-    activePosition: "F"
+    activePosition: "F",
   },
   action
 ) => {
   if (action.type === FETCH_SEASONS_SUCCESS) {
     let { seasons } = action.payload;
-    seasons = seasons.map(season => season.Tables_in_poc_config);
+    seasons = seasons
+      .map((season) => season.Tables_in_poc_config)
+      .filter((season) => season.includes("season"));
 
     return {
       ...state,
       activeSeason: seasons[0],
-      seasons
+      seasons,
     };
   }
 
