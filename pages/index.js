@@ -1,66 +1,74 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import SeasonSelector from "../src/components/season-selector.js";
-import Chart from "../src/components/chart.js";
-import { Input } from "theme-ui";
-import { SearchIcon } from "../src/icons/";
+import { Button } from "theme-ui";
 
 const Home = () => {
   return (
-    <div sx={{ variant: "containers.page" }}>
-      <div
+    <div
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        background: "#0a131c",
+        color: "#fff",
+      }}
+    >
+      <header
         sx={{
-          padding: "5px 40px",
+          height: "62px",
+          width: "1184px",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingTop: "10px",
           display: "flex",
           alignItems: "center",
-          width: "50%"
         }}
       >
-        <SearchIcon />
-        <Input
-          placeholder="Search for a team"
+        <div>
+          <span sx={{ display: "block" }}>Mirror</span>
+          <span sx={{ display: "block" }}>Pools FC</span>
+        </div>
+        <div sx={{ flexGrow: "1" }}>
+          <ul
+            sx={{
+              listStyle: "none",
+              padding: "0",
+              margin: "0",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <li sx={{ padding: "24px" }}>Products</li>
+            <li sx={{ padding: "24px" }}>Docs</li>
+            <li sx={{ padding: "24px" }}>Company</li>
+            <li sx={{ padding: "24px" }}>Pricing</li>
+          </ul>
+        </div>
+        <div>
+          <Button mr={2}>Sign in</Button>
+        </div>
+      </header>
+      <main
+        sx={{
+          paddingTop: "144px",
+          margin: "auto",
+          width: "1184px",
+          // flex: "1 1 auto",
+        }}
+      >
+        <h1
           sx={{
-            paddingLeft: "16px",
-            border: "0",
-            outline: "none",
-            borderBottom: "1px solid transparent",
-            ":focus": { borderBottom: "1px solid black", borderRadius: "0px" },
-            ":hover": { borderBottom: "1px solid black", borderRadius: "0px" }
+            fontSize: "64px",
+            paddingRight: "64px",
+            marginRight: "64px",
+            lineHeight: "1",
+            width: "50%",
           }}
-        />
-      </div>
-      <div
-        sx={{
-          padding: "40px 40px 0px 40px",
-          fontSize: "2rem",
-          width: "74rem",
-          marginRight: "auto",
-          marginLeft: "auto"
-        }}
-      >
-        Footballers
-      </div>
-      <div
-        sx={{
-          padding: "0px 40px",
-          width: "74rem",
-          marginRight: "auto",
-          marginLeft: "auto"
-        }}
-      >
-        Visualize football statistics for Barcelona. Go ahead and apply some of
-        our available filters.
-      </div>
-      <div
-        sx={{
-          width: "74rem",
-          marginRight: "auto",
-          marginLeft: "auto"
-        }}
-      >
-        <SeasonSelector />
-        <Chart />
-      </div>
+        >
+          The easiest way to use football data.
+        </h1>
+      </main>
+      <footer sx={{ width: "100%" }}>Footer</footer>
     </div>
   );
 };

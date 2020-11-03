@@ -8,17 +8,17 @@ const theme = {
       border: "1px solid",
       borderColor: "muted",
       borderRadius: "4px",
-      p: 2
+      p: 2,
     },
     page: {
       width: "calc(100% - 240px)",
       marginLeft: "240px",
-      height: "100vh"
-    }
+      height: "100vh",
+    },
   },
   styles: {
-    ...roboto.styles
-  }
+    ...roboto.styles,
+  },
 };
 
 export default theme;
