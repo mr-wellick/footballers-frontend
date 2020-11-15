@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import { useState } from "react";
 import { MirrorPoolsIcon } from "../src/icons";
+import { useRouter } from "next/router";
 
 const promiseUtil = (promise) =>
   promise
@@ -10,6 +11,7 @@ const promiseUtil = (promise) =>
     .catch((err) => [err]);
 
 const Login = () => {
+  const router = useRouter();
   const [userCredentials, setUserCredentials] = useState({
     user_email: "",
     user_password: "",
@@ -138,7 +140,8 @@ const Login = () => {
                     errors: "Check your email and password and try again.",
                   });
                 } else {
-                  console.log("user", res);
+                  localStorage.setItem("user", JSON.stringify(res));
+                  router.push("/console");
                 }
               }}
             >
