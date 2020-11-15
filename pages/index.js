@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { Button } from "theme-ui";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -45,7 +45,9 @@ const Home = () => {
           </ul>
         </div>
         <div>
-          <Button mr={2}>Sign in</Button>
+          <Link href="/login">
+            <a mr={2}>Sign in</a>
+          </Link>
         </div>
       </header>
       <main

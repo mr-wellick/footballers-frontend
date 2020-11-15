@@ -15,6 +15,10 @@ const theme = {
       marginLeft: "240px",
       height: "100vh",
     },
+    login: {
+      background: "#f1f3f4",
+      height: "100vh",
+    },
   },
   styles: {
     ...roboto.styles,
