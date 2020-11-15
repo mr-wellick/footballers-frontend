@@ -114,7 +114,7 @@ const Login = () => {
               }}
               onClick={async (e) => {
                 e.preventDefault();
-                const [err, res] = await promiseUtil(
+                const [err, user] = await promiseUtil(
                   fetch("http://localhost:5000/api/v1/user/login", {
                     method: "POST",
                     headers: {
@@ -130,17 +130,17 @@ const Login = () => {
                     ...loginErrors,
                     errors: "Check your email and password and try again.",
                   });
-                } else if (res.errors) {
+                } else if (user.errors) {
                   console.error(
                     "user_email or user_password invalid input",
-                    res.errors
+                    user.errors
                   );
                   setLoginErrors({
                     ...loginErrors,
                     errors: "Check your email and password and try again.",
                   });
                 } else {
-                  localStorage.setItem("user", JSON.stringify(res));
+                  localStorage.setItem("user", JSON.stringify(user));
                   router.push("/console");
                 }
               }}
