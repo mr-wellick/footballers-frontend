@@ -5,7 +5,13 @@ import { MirrorPoolsIcon } from "../src/icons";
 const Login = () => {
   return (
     <section sx={{ variant: "containers.login" }}>
-      <div>
+      <div
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <div
           sx={{
             padding: "16px 0",
@@ -75,10 +81,10 @@ const Login = () => {
             <a sx={{ textDecoration: "underline" }}>Forgot your password?</a>
           </div>
         </div>
-      </div>
-      <div>
-        <p>Don't have an account?</p>
-        <a>Create an accout -&gt;</a>
+        <div sx={{ textAlign: "center", padding: "32px 16px 0px 16px" }}>
+          <p sx={{ margin: "0px" }}>Don't have an account?</p>
+          <a sx={{ textDecoration: "underline" }}>Create an accout →</a>
+        </div>
       </div>
     </section>
   );
