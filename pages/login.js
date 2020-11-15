@@ -1,8 +1,21 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import { useState } from "react";
 import { MirrorPoolsIcon } from "../src/icons";
 
+const promiseUtil = (promise) =>
+  promise
+    .then((res) => res.json())
+    .then((res) => [undefined, res])
+    .catch((err) => [err]);
+
 const Login = () => {
+  const [userCredentials, setUserCredentials] = useState({
+    user_email: "",
+    user_password: "",
+  });
+  const [loginErrors, setLoginErrors] = useState({ errors: null });
+
   return (
     <section sx={{ variant: "containers.login" }}>
       <div
@@ -39,7 +52,28 @@ const Login = () => {
           >
             Welcome back
           </h2>
-          <form>
+          {loginErrors.errors ? (
+            <div
+              sx={{
+                padding: "8px 12px 8px 12px",
+                marginBottom: "16px",
+                background: "#ECF0F6",
+                borderRadius: "100rem",
+                fontSize: "14px",
+              }}
+            >
+              {loginErrors.errors}
+            </div>
+          ) : null}
+          <form
+            onChange={(e) => {
+              const { value, dataset } = e.target;
+              setUserCredentials({
+                ...userCredentials,
+                [dataset.type]: value,
+              });
+            }}
+          >
             <input
               sx={{
                 border: "1px solid #ECF0F6",
@@ -51,6 +85,7 @@ const Login = () => {
               }}
               placeholder="Email"
               type="text"
+              data-type="user_email"
             />
             <input
               sx={{
@@ -63,6 +98,7 @@ const Login = () => {
               }}
               placeholder="Password"
               type="password"
+              data-type="user_password"
             />
             <button
               sx={{
@@ -72,18 +108,54 @@ const Login = () => {
                 padding: "16px",
                 border: "1px solid #202a35",
                 borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={async (e) => {
+                e.preventDefault();
+                const [err, res] = await promiseUtil(
+                  fetch("http://localhost:5000/api/v1/user/login", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(userCredentials),
+                  })
+                );
+
+                if (err) {
+                  console.error("user does not exist", err);
+                  setLoginErrors({
+                    ...loginErrors,
+                    errors: "Check your email and password and try again.",
+                  });
+                } else if (res.errors) {
+                  console.error(
+                    "user_email or user_password invalid input",
+                    res.errors
+                  );
+                  setLoginErrors({
+                    ...loginErrors,
+                    errors: "Check your email and password and try again.",
+                  });
+                } else {
+                  console.log("user", res);
+                }
               }}
             >
               Log in
             </button>
           </form>
           <div sx={{ textAlign: "center", paddingTop: "32px" }}>
-            <a sx={{ textDecoration: "underline" }}>Forgot your password?</a>
+            <a sx={{ textDecoration: "underline", cursor: "pointer" }}>
+              Forgot your password?
+            </a>
           </div>
         </div>
         <div sx={{ textAlign: "center", padding: "32px 16px 0px 16px" }}>
           <p sx={{ margin: "0px" }}>Don't have an account?</p>
-          <a sx={{ textDecoration: "underline" }}>Create an accout →</a>
+          <a sx={{ textDecoration: "underline", cursor: "pointer" }}>
+            Create an accout →
+          </a>
         </div>
       </div>
     </section>
