@@ -1,12 +1,7 @@
 import React from "react";
 
 const Console = () => {
-  const { user_email, user_id } = JSON.parse(localStorage.getItem("user"));
-  return (
-    <div>
-      Welcome {user_email} with id {user_id}
-    </div>
-  );
+  return <div>welcome to the home page</div>;
 };
 
 export default Console;
