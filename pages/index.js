@@ -5,7 +5,7 @@ const Home = () => {
     <div>
       Welcome to my home page
       <Link href="/login">
-        <a mr={2}>Sign in</a>
+        <a>Sign in</a>
       </Link>
     </div>
   );

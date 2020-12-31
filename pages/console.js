@@ -1,17 +1,12 @@
-import { Sidebar } from "../src/components";
+import { FootballersChart, SeasonsSelector, Sidebar } from "../src/components";
 
 const Console = () => {
   return (
     <section>
       <Sidebar />
-      <div
-        style={{
-          width: "calc(100% - 240px)",
-          marginLeft: "240px",
-          zIndex: "-1",
-        }}
-      >
-        this is the main content
+      <div className="ml-240 bg-palest-blue h-screen">
+        <SeasonsSelector />
+        <FootballersChart />
       </div>
     </section>
   );

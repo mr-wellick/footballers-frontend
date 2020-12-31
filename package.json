@@ -10,8 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^10.1.0",
-    "lodash.filter": "^4.6.0",
-    "lodash.find": "^4.6.0",
     "next": "^10.0.3",
     "postcss": "^8.2.1",
     "prettier": "^2.2.1",

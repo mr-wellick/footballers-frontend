@@ -1,10 +1,10 @@
-import { HomeIcon, MirrorPoolsIcon } from "../icons";
+import { HomeIcon, IexIcon } from "../icons";
 
 const Sidebar = () => {
   return (
     <div className="fixed h-screen text-14 w-240 bg-dark-blue">
       <div className="px-24 py-16">
-        <MirrorPoolsIcon />
+        <IexIcon />
       </div>
       <nav className="text-white">
         <div className="flex items-center pl-28 pr-24 py-7">
