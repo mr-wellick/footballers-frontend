@@ -1,13 +1,13 @@
-import { promiseHelper } from "../../utilities";
-import { FETCH_ERROR, RETRIEVE_SEASON } from "../constants";
+import { promiseHelper } from '../../utilities';
+import { FETCH_ERROR, RETRIEVE_SEASON } from '../constants';
 
 const retrieveSeason = (season) => {
   return async (dispatch) => {
     const [err, res] = await promiseHelper(
       fetch(`http://localhost:5000/api/v1/footballers/season`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ season }),
       })
@@ -19,7 +19,7 @@ const retrieveSeason = (season) => {
         payload: {
           error: {
             message: `Cannot retrieve footballers for the following season: ${
-              season.split("_")[1]
+              season.split('_')[1]
             }`,
           },
         },

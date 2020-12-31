@@ -1,4 +1,4 @@
-import { FootballersChart, SeasonsSelector, Sidebar } from "../src/components";
+import { FootballersChart, SeasonsSelector, Sidebar } from '../src/components';
 
 const Console = () => {
   return (

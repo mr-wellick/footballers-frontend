@@ -1,4 +1,4 @@
-import { MirrorPoolsIcon } from "../src/icons";
+import { MirrorPoolsIcon } from '../src/icons';
 
 const Login = () => {
   return (

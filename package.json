@@ -4,7 +4,9 @@
     "build": "next build",
     "start": "next start",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "format": "prettier --write \"src/**/*.{js,jsx}\" \"pages/**/*.{js,jsx}\"",
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx}\" \"pages/**/*.{js,jsx}\""
   },
   "name": "footballers-frontend",
   "version": "1.0.0",
