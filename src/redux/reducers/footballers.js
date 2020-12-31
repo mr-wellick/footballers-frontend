@@ -1,4 +1,4 @@
-import { FETCH_ERROR, RETRIEVE_SEASON, RETRIEVE_SEASONS } from '../constants';
+import { FETCH_ERROR, RETRIEVE_SEASON, RETRIEVE_SEASONS_SUCCESS } from '../constants';
 
 const footballers = (state = { seasons: [], error: {}, season: [] }, action) => {
   if (action.type === FETCH_ERROR) {
@@ -9,8 +9,8 @@ const footballers = (state = { seasons: [], error: {}, season: [] }, action) => 
     };
   }
 
-  if (action.type === RETRIEVE_SEASONS) {
-    const { seasons, error } = action.payload;
+  if (action.type === RETRIEVE_SEASONS_SUCCESS) {
+    const { seasons, error } = action.payload.data;
     return {
       ...state,
       seasons,

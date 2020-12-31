@@ -1,6 +1,6 @@
 import { promiseHelper } from '../../utilities';
-import { RETRIEVE_SEASONS } from '../constants';
 import fetchError from './fetch-error';
+import retrieveSeasonsSuccess from './retrieve-seasons-success';
 
 const retrieveSeasons = () => {
   return async (dispatch) => {
@@ -15,10 +15,11 @@ const retrieveSeasons = () => {
       return dispatch(fetchError(error));
     }
 
-    return dispatch({
-      type: RETRIEVE_SEASONS,
-      payload: { seasons: res.seasons, error: {} },
-    });
+    const data = {
+      seasons: res.seasons,
+      error: {},
+    };
+    return dispatch(retrieveSeasonsSuccess(data));
   };
 };
 
