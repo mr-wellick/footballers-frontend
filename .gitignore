@@ -3,3 +3,4 @@ dist
 public
 .next
 .env
+coverage
