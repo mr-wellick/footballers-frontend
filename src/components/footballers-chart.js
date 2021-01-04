@@ -1,24 +1,36 @@
 import { useSelector } from 'react-redux';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-const FootballersChart = () => {
+const useSeasonData = () => {
   const { season } = useSelector((state) => state.footballers);
 
   if (season.length <= 0) {
-    return <div>No chart to display</div>;
+    return null;
   }
 
-  const filteredData = season
+  return season
     .filter((player) => player.g !== 'NA')
     .filter((player) => player.g !== '0')
-    .map((player) => ({ ...player, name: player.name.split(' ')[0] }))
-    .map((player) => ({ ...player, a: Number(player.a), g: Number(player.g) }));
+    .map((player) => ({
+      ...player,
+      name: player.name.split(' ')[0],
+      a: Number(player.a),
+      g: Number(player.g),
+    }));
+};
+
+const FootballersChart = () => {
+  const season = useSeasonData();
+
+  if (!season) {
+    return <div>No chart to display</div>;
+  }
 
   return (
     <BarChart
       width={1000}
       height={500}
-      data={filteredData}
+      data={season}
       margin={{
         top: 5,
         right: 30,
