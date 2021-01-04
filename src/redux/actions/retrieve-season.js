@@ -1,5 +1,6 @@
 import { promiseHelper } from '../../utilities';
-import { FETCH_ERROR, RETRIEVE_SEASON } from '../constants';
+import fetchError from './fetch-error';
+import retrieveSeasonSuccess from './retrieve-season-success';
 
 const retrieveSeason = (season) => {
   return async (dispatch) => {
@@ -14,22 +15,16 @@ const retrieveSeason = (season) => {
     );
 
     if (err) {
-      return dispatch({
-        type: FETCH_ERROR,
-        payload: {
-          error: {
-            message: `Cannot retrieve footballers for the following season: ${
-              season.split('_')[1]
-            }`,
-          },
-        },
-      });
+      const error = {
+        message: `Cannot retrieve footballers for the following season: ${season.split('_')[1]}`,
+      };
+      return dispatch(fetchError(error));
     }
 
-    return dispatch({
-      type: RETRIEVE_SEASON,
-      payload: { season: res.season, error: {} },
-    });
+    const data = {
+      season: res.season,
+    };
+    return dispatch(retrieveSeasonSuccess(data));
   };
 };
 

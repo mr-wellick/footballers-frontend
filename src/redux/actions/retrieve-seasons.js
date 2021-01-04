@@ -17,7 +17,6 @@ const retrieveSeasons = () => {
 
     const data = {
       seasons: res.seasons,
-      error: {},
     };
     return dispatch(retrieveSeasonsSuccess(data));
   };
