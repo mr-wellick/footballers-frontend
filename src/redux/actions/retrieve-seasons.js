@@ -1,23 +1,24 @@
-import { promiseHelper } from "../../utilities";
-import { RETRIEVE_SEASONS, FETCH_ERROR } from "../constants";
+import { promiseHelper } from '../../utilities';
+import fetchError from './fetch-error';
+import retrieveSeasonsSuccess from './retrieve-seasons-success';
 
 const retrieveSeasons = () => {
   return async (dispatch) => {
     const [err, res] = await promiseHelper(
-      fetch("http://localhost:5000/api/v1/footballers/seasons")
+      fetch('http://localhost:5000/api/v1/footballers/seasons')
     );
 
     if (err) {
-      return dispatch({
-        type: FETCH_ERROR,
-        payload: { error: { message: "Unable to retrieve seasons." } },
-      });
+      const error = {
+        message: 'Unable to retrieve seasons.',
+      };
+      return dispatch(fetchError(error));
     }
 
-    return dispatch({
-      type: RETRIEVE_SEASONS,
-      payload: { seasons: res.seasons, error: {} },
-    });
+    const data = {
+      seasons: res.seasons,
+    };
+    return dispatch(retrieveSeasonsSuccess(data));
   };
 };
 

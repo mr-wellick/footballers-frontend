@@ -1,9 +1,6 @@
-import { FETCH_ERROR, RETRIEVE_SEASON, RETRIEVE_SEASONS } from "../constants";
+import { FETCH_ERROR, RETRIEVE_SEASONS_SUCCESS, RETRIEVE_SEASON_SUCCESS } from '../constants';
 
-const footballers = (
-  state = { seasons: [], error: {}, season: [] },
-  action
-) => {
+const footballers = (state = { seasons: [], error: null, season: [] }, action) => {
   if (action.type === FETCH_ERROR) {
     const { error } = action.payload;
     return {
@@ -12,21 +9,21 @@ const footballers = (
     };
   }
 
-  if (action.type === RETRIEVE_SEASONS) {
-    const { seasons, error } = action.payload;
+  if (action.type === RETRIEVE_SEASONS_SUCCESS) {
+    const { seasons } = action.payload.data;
     return {
       ...state,
       seasons,
-      error,
+      error: null,
     };
   }
 
-  if (action.type === RETRIEVE_SEASON) {
-    const { season, error } = action.payload;
+  if (action.type === RETRIEVE_SEASON_SUCCESS) {
+    const { season } = action.payload.data;
     return {
       ...state,
       season,
-      error,
+      error: null,
     };
   }
 

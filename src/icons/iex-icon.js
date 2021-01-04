@@ -1,11 +1,6 @@
 const IexIcon = () => {
   return (
-    <svg
-      width="48"
-      viewBox="0 0 200 128.84"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="#fff"
-    >
+    <svg width="48" viewBox="0 0 200 128.84" xmlns="http://www.w3.org/2000/svg" fill="#fff">
       <g>
         <rect x="2.5" width="11.49" height="11.34"></rect>
         <rect x="2.55" y="17.09" width="11.44" height="42.78"></rect>

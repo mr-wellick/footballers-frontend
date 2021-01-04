@@ -2,7 +2,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "format": "prettier --write \"src/**/*.{js,jsx}\" \"pages/**/*.{js,jsx}\"",
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx}\" \"pages/**/*.{js,jsx}\""
   },
   "name": "footballers-frontend",
   "version": "1.0.0",
@@ -21,5 +25,9 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
   }
 }

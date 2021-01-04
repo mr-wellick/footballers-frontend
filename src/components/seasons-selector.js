@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { SearchIcon } from "../icons";
-import { retrieveSeason, retrieveSeasons } from "../redux";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { SearchIcon } from '../icons';
+import { retrieveSeason, retrieveSeasons } from '../redux';
 
 const SeasonsSelector = () => {
   const { seasons } = useSelector((state) => state.footballers);
@@ -20,9 +20,7 @@ const SeasonsSelector = () => {
           <input
             onFocus={() => setShowSeasons(true)}
             onBlur={(e) => setShowSeasons(false)}
-            onKeyDown={(e) =>
-              e.key === "Escape" ? setShowSeasons(false) : null
-            }
+            onKeyDown={(e) => (e.key === 'Escape' ? setShowSeasons(false) : null)}
             onChange={(e) => console.log(e.target.value)}
             className="w-full outline-none"
             type="text"
@@ -32,18 +30,16 @@ const SeasonsSelector = () => {
         {showSeasons ? (
           <ul
             className="absolute top-60 left-24 rounded shadow-lg bg-white z-10"
-            style={{ width: "calc(100% - 24px)" }}
+            style={{ width: 'calc(100% - 24px)' }}
           >
             {seasons.map((season) => (
               <li
                 className="px-16 py-12 relative cursor-pointer hover:bg-palest-blue"
                 key={season}
                 data-season={season}
-                onMouseDown={(e) =>
-                  dispatch(retrieveSeason(e.target.dataset.season))
-                }
+                onMouseDown={(e) => dispatch(retrieveSeason(e.target.dataset.season))}
               >
-                {season.split("_")[1]}
+                {season.split('_')[1]}
               </li>
             ))}
           </ul>

@@ -1,4 +1,4 @@
-import { HomeIcon, IexIcon } from "../icons";
+import { HomeIcon, IexIcon } from '../icons';
 
 const Sidebar = () => {
   return (
