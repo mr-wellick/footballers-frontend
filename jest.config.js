@@ -1,5 +1,5 @@
 module.exports = {
-  collectCoverageFrom: ['**/src/**/*'],
+  collectCoverageFrom: ['**/src/**/*', '!**/src/icons/*'],
   coverageThreshold: {
     global: {
       statements: 50,
