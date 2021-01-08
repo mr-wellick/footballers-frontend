@@ -17,9 +17,7 @@ test('Should produce a success object', () => {
     headers: { 'content-type': 'application/json' },
   });
 
-  const expectedActions = [
-    { type: RETRIEVE_SEASONS_SUCCESS, payload: { data: { seasons: [2004, 2005, 2006] } } },
-  ];
+  const expectedActions = [{ type: RETRIEVE_SEASONS_SUCCESS, payload: { data: { seasons: [2004, 2005, 2006] } } }];
 
   const store = mockStore({ seasons: [] });
   return store.dispatch(retrieveSeasons()).then(() => {
