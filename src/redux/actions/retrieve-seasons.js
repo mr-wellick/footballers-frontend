@@ -4,9 +4,7 @@ import retrieveSeasonsSuccess from './retrieve-seasons-success';
 
 const retrieveSeasons = () => {
   return async (dispatch) => {
-    const [err, res] = await promiseHelper(
-      fetch('http://localhost:5000/api/v1/footballers/seasons')
-    );
+    const [err, res] = await promiseHelper(fetch('http://localhost:5000/api/v1/footballers/seasons'));
 
     if (err) {
       const error = {

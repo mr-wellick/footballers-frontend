@@ -23,6 +23,7 @@ const retrieveSeason = (season) => {
 
     const data = {
       season: res.season,
+      activeSeason: season,
     };
     return dispatch(retrieveSeasonSuccess(data));
   };

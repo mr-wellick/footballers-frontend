@@ -61,6 +61,7 @@ test('Should produce a success object', () => {
               num: '2',
             },
           ],
+          activeSeason: 'season_2004',
         },
       },
     },
