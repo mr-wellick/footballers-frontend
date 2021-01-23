@@ -19,7 +19,7 @@ const SeasonsSelector = () => {
         <div className="pl-12 pr-16 w-full">
           <input
             onFocus={() => setShowSeasons(true)}
-            onBlur={(e) => setShowSeasons(false)}
+            onBlur={() => setShowSeasons(false)}
             onKeyDown={(e) => (e.key === 'Escape' ? setShowSeasons(false) : null)}
             onChange={(e) => console.log(e.target.value)}
             className="w-full outline-none"
