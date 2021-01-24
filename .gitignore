@@ -3,4 +3,5 @@ dist
 public
 .next
 .env
+.env.local
 coverage
